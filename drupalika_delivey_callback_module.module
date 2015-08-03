@@ -1,0 +1,18 @@
+<?php
+
+function drupalika_delivey_callback_module_menu() {
+  $items = array();
+  
+  $items['drupalika/develop'] = array(
+    'title' => 'Developing a new module',
+    'page callback' => 'drupalika_develop_page',
+    'delivery callback' => 'drupalika_custom_delivery_callback',
+    'access callback' => TRUE,
+  );
+  
+  return $items;
+}
+
+function drupalika_custom_delivery_callback($page_callback_result) {
+  print $page_callback_result;
+}
